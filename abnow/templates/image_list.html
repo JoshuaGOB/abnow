@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Collection Items</h2>
+{% for image in images %}
+    <h2>{{ image.filename }}</h2>
+    <img src="{{ image.image.url }}" alt="{{ image.filename }}">
+    <h3>Codes</h3>
+    <ul>
+        {% for code in image.codes.all %}
+            <li>{{ code.name }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Search Results</h3>
+<form method="get">
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+</form>
+
+{% for image in images %}
+    <h2><a href="{% url 'view_image' image.id %}">{{ image.filename }}</a></h2>
+    <h3>Codes</h3>
+    <ul>
+        {% for code in image.codes.all %}
+            <li>{{ code.name }}</li>
+        {% endfor %}
+    </ul>
+{% empty %}
+<p>No results found.</p>
+{% endfor %}
+{% endblock %}

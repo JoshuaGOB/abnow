@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Home</h2>
+{% for img in image %}
+<p><a href="{% url 'view_image' img.id %}">{{ img.filename }}</a></p>
+{% empty %}
+<p>No images uploaded yet.</p>
+{% endfor %}
+{% endblock %}

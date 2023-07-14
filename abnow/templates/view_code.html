@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Code: {{ code.name }}</h2>
+  <h3>Code Categories</h3>
+  <ul>
+    {% for code_category in code.codecategory_set.all %}
+      <li>{{ code_category.name }}</li>
+      {% empty %}
+      <p>No images uploaded yet.</p>
+    {% endfor %}
+  </ul>
+{% endblock %}

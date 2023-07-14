@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ image.filename }}</h2>
+<img src="{{ image.image.url }}" alt="{{ image.filename }}">
+<p><a href="{% url 'edit_image' image.id %}">Edit</a> | <a href="{% url 'delete_image' image.id %}">Delete</a></p>
+{% empty %}
+<p>No images uploaded yet.</p>
+{% endfor %}
+{% endblock %}

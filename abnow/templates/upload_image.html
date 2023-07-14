@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Upload Image</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {{ code_formset.management_form }}
+  {% for form in code_formset %}
+    {{ form.id }}
+    {{ form.instance }}
+    {{ form.DELETE }}
+    {{ form.as_p }}
+  {% endfor %}
+  <button type="submit">Upload</button>
+</form>
+
+{% endblock %}

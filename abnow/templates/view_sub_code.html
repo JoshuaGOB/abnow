@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Sub Code: {{ sub_code.name }}</h2>
+  <h3>Code Category: {{ sub_code.code_category.name }}</h3>
+  <h3>Images</h3>
+  <ul>
+    {% for image in sub_code.images.all %}
+      <li><a href="{% url 'view_image' image.id %}">{{ image.filename }}</a></li>
+      {% empty %}
+      <p>No images uploaded yet.</p>
+      {% endfor %}
+  </ul>
+{% endblock %}
